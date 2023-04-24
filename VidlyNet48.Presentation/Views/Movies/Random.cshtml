@@ -1,0 +1,31 @@
+﻿@model VidlyNet48.Presentation.ViewModels.RandomMovieViewModel
+
+@{
+	ViewBag.Title = "Random";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Movie.Name</h2>
+
+@if (Model.Customers is null || Model.Customers.Count == 0)
+{
+	<p>No one has rented this movie before.</p>
+}
+else
+{
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Customers</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var customer in Model.Customers)
+			{
+				<tr>
+					<td>@customer.Name</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
