@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 using VidlyNet48.Presentation.Models;
 using VidlyNet48.Presentation.ViewModels;
@@ -7,12 +9,36 @@ namespace VidlyNet48.Presentation.Controllers
 {
 	public class MoviesController : Controller
 	{
+		private readonly ApplicationDbContext _context;
+
+		public MoviesController()
+		{
+			_context = new ApplicationDbContext();
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			_context.Dispose();
+		}
+
 		// GET: Movies
 		public ActionResult Index()
 		{
-			var movies = GetMovies();
+			var movies = _context.Movies
+				.Include(m => m.Genre);
 
 			return View(movies);
+		}
+
+		// GET: Movies/Details/Id
+		public ActionResult Details(int id)
+		{
+			var movie = _context.Movies
+				.Include(m => m.Genre)
+				.SingleOrDefault(m => m.Id == id);
+
+			if (movie is null) return HttpNotFound();
+			return View(movie);
 		}
 
 		// GET: Movies/Random
@@ -32,15 +58,6 @@ namespace VidlyNet48.Presentation.Controllers
 			};
 
 			return View(viewModel);
-		}
-
-		private IEnumerable<Movie> GetMovies()
-		{
-			return new List<Movie>
-			{
-				new Movie {Name = "Shrek"},
-				new Movie {Name = "Wall-e"}
-			};
 		}
 	}
 }
