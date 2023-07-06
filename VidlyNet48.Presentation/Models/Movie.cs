@@ -22,6 +22,7 @@ namespace VidlyNet48.Presentation.Models
 		public DateTime ReleaseDate { get; set; }
 
 		[Display(Name = "Number in stock")]
+		[Range(1, 20, ErrorMessage = "Should be between 1 and 20!")]
 		public int NumberInStuck { get; set; }
 	}
 }

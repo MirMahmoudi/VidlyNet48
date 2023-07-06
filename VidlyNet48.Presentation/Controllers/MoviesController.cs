@@ -56,24 +56,34 @@ namespace VidlyNet48.Presentation.Controllers
 
 		// POST: Movies/Save
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public ActionResult Save(Movie movie)
 		{
-			if (movie.Id == 0)
+			if (ModelState.IsValid)
 			{
-				movie.DateAdded = DateTime.Now;
-				_context.Movies.Add(movie);
-			}
-			else
-			{
-				var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
-				movieInDb.Name = movie.Name;
-				movieInDb.GenreId = movie.GenreId;
-				movieInDb.NumberInStuck = movie.NumberInStuck;
-				movieInDb.ReleaseDate = movie.ReleaseDate;
+				if (movie.Id == 0)
+				{
+					movie.DateAdded = DateTime.Now;
+					_context.Movies.Add(movie);
+				}
+				else
+				{
+					var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+					movieInDb.Name = movie.Name;
+					movieInDb.GenreId = movie.GenreId;
+					movieInDb.NumberInStuck = movie.NumberInStuck;
+					movieInDb.ReleaseDate = movie.ReleaseDate;
+				}
+
+				_context.SaveChanges();
+				return RedirectToAction("Index", "Movies");
 			}
 
-			_context.SaveChanges();
-			return RedirectToAction("Index" , "Movies");
+			var movieForm = new MovieFormViewModel(movie)
+			{
+				Genres = _context.Genres.ToList()
+			};
+			return View("MovieForm", movieForm);
 		}
 
 		// Get: Movies/Edit/:id
@@ -83,9 +93,8 @@ namespace VidlyNet48.Presentation.Controllers
 
 			if(movie is null) return HttpNotFound();
 
-			var movieForm = new MovieFormViewModel()
+			var movieForm = new MovieFormViewModel(movie)
 			{
-				Movie = movie,
 				Genres = _context.Genres.ToList()
 			};
 			return View("MovieForm", movieForm);
