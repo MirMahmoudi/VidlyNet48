@@ -14,6 +14,8 @@ namespace VidlyNet48.Presentation.Dto
 
 		public int MembershipTypeId { get; set; }
 
+		public MembershipTypeDto MembershipType { get; set; }
+
 		// [Min18YearsIfMember]
 		public DateTime? Birthdate { get; set; }
 	}
