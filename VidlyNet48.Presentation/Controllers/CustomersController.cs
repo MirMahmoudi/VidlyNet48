@@ -23,10 +23,10 @@ namespace VidlyNet48.Presentation.Controllers
 		// GET: Customers
 		public ActionResult Index()
 		{
-			var customers = _context.Customers
-				.Include(c => c.MembershipType);
+			// var customers = _context.Customers
+			// 	.Include(c => c.MembershipType);
 
-			return View(customers);
+			return View();
 		}
 
 		// GET: Customers/Details/Id

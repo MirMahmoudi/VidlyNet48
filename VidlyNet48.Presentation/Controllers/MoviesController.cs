@@ -26,10 +26,7 @@ namespace VidlyNet48.Presentation.Controllers
 		// GET: Movies
 		public ActionResult Index()
 		{
-			var movies = _context.Movies
-				.Include(m => m.Genre);
-
-			return View(movies);
+			return View();
 		}
 
 		// GET: Movies/Details/Id

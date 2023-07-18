@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 using AutoMapper;
@@ -19,7 +20,10 @@ namespace VidlyNet48.Presentation.Controllers.Api
 		// GET: /api/Movies
 		public IHttpActionResult GetMovies()
 		{
-			return Ok(_dbContext.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>));
+			return Ok( _dbContext.Movies
+				.Include(m => m.Genre)
+				.ToList()
+				.Select(Mapper.Map<Movie, MovieDto>) );
 		}
 
 		// GET: /api/Movies/:id
