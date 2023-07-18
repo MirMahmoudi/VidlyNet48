@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Data.Entity;
 using System.Web.Http;
 using AutoMapper;
 using VidlyNet48.Presentation.Dto;
@@ -19,7 +20,10 @@ namespace VidlyNet48.Presentation.Controllers.Api
 		// GET: /api/Customers
 		public IHttpActionResult GetCustomers()
 		{
-			return Ok(_dbContext.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>) );
+			return Ok( _dbContext.Customers
+				.Include(c => c.MembershipType)
+				.ToList()
+				.Select(Mapper.Map<Customer, CustomerDto>) );
 		}
 
 		// GET: /api/Customers/:id
