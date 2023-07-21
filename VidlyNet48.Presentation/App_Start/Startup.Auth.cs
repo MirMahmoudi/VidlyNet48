@@ -54,9 +54,9 @@ namespace VidlyNet48.Presentation
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: SecretKey.facebookId,
+               appSecret: SecretKey.facebookSecret);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

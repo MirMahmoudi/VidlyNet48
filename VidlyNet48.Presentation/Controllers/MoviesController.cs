@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web.Mvc;
 using VidlyNet48.Presentation.Models;
@@ -26,7 +25,7 @@ namespace VidlyNet48.Presentation.Controllers
 		// GET: Movies
 		public ActionResult Index()
 		{
-			return View();
+			return View(User.IsInRole(RoleName.CanManageMovies) ? "Index" : "IndexReadOnly");
 		}
 
 		// GET: Movies/Details/Id
@@ -41,6 +40,7 @@ namespace VidlyNet48.Presentation.Controllers
 		}
 
 		// GET: Movies/New
+		[Authorize(Roles = RoleName.CanManageMovies)]
 		public ActionResult New()
 		{
 			var movieForm = new MovieFormViewModel()
