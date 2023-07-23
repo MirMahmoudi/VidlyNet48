@@ -5,6 +5,7 @@ using System.Web.Http;
 using AutoMapper;
 using VidlyNet48.Presentation.Dto;
 using VidlyNet48.Presentation.Models;
+using VidlyNet48.Presentation.Models.IdentityModels;
 
 namespace VidlyNet48.Presentation.Controllers.Api
 {
@@ -38,6 +39,7 @@ namespace VidlyNet48.Presentation.Controllers.Api
 
 		// POST: /api/Movies
 		[HttpPost]
+		[Authorize(Roles = RoleName.CanManageMovies)]
 		public IHttpActionResult CreateMovie(MovieDto movieDto)
 		{
 			if (!ModelState.IsValid) return BadRequest();
@@ -54,6 +56,7 @@ namespace VidlyNet48.Presentation.Controllers.Api
 
 		// PUT: /api/Movies/:id
 		[HttpPut]
+		[Authorize(Roles = RoleName.CanManageMovies)]
 		public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
 		{
 			if (!ModelState.IsValid) return BadRequest();
@@ -69,6 +72,7 @@ namespace VidlyNet48.Presentation.Controllers.Api
 
 		// DELETE: /api/Movies/:id
 		[HttpDelete]
+		[Authorize(Roles = RoleName.CanManageMovies)]
 		public IHttpActionResult DeleteMovie(int id)
 		{
 			var movieInDb = _dbContext.Movies.SingleOrDefault(m => m.Id == id);
