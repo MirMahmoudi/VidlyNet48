@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using VidlyNet48.Presentation.Models;
 
-namespace VidlyNet48.Presentation.ViewModels
+namespace VidlyNet48.Presentation.ViewModels.MoviesViewModels
 {
 	public class MovieFormViewModel
 	{

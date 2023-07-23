@@ -2,7 +2,8 @@
 using System.Linq;
 using System.Web.Mvc;
 using VidlyNet48.Presentation.Models;
-using VidlyNet48.Presentation.ViewModels;
+using VidlyNet48.Presentation.Models.IdentityModels;
+using VidlyNet48.Presentation.ViewModels.CustomersViewModels;
 
 namespace VidlyNet48.Presentation.Controllers
 {

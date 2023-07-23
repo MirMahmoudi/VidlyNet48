@@ -5,6 +5,7 @@ using System.Web.Http;
 using AutoMapper;
 using VidlyNet48.Presentation.Dto;
 using VidlyNet48.Presentation.Models;
+using VidlyNet48.Presentation.Models.IdentityModels;
 
 namespace VidlyNet48.Presentation.Controllers.Api
 {

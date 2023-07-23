@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using VidlyNet48.Presentation.Models;
+using VidlyNet48.Presentation.Models.IdentityModels;
 
 namespace VidlyNet48.Presentation
 {
