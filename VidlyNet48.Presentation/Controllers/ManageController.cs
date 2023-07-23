@@ -1,12 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using VidlyNet48.Presentation.Models;
+using VidlyNet48.Presentation.ViewModels.ManageViewModels;
 
 namespace VidlyNet48.Presentation.Controllers
 {

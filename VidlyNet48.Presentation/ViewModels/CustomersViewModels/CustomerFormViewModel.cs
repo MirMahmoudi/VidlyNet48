@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using VidlyNet48.Presentation.Models;
 
-namespace VidlyNet48.Presentation.ViewModels
+namespace VidlyNet48.Presentation.ViewModels.CustomersViewModels
 {
 	public class CustomerFormViewModel
 	{
