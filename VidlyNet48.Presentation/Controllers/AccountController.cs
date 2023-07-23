@@ -5,7 +5,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using VidlyNet48.Presentation.Models;
+using VidlyNet48.Presentation.Models.IdentityModels;
+using VidlyNet48.Presentation.ViewModels.AccountViewModels;
 
 namespace VidlyNet48.Presentation.Controllers
 {
@@ -152,7 +153,8 @@ namespace VidlyNet48.Presentation.Controllers
 				{
 					UserName = model.Email,
 					Email = model.Email,
-					DrivingLicense = model.DrivingLicense
+					DrivingLicense = model.DrivingLicense,
+					PhoneNumber = model.PhoneNumber
 				};
 				var result = await UserManager.CreateAsync(user, model.Password);
 				if (result.Succeeded)
@@ -380,7 +382,8 @@ namespace VidlyNet48.Presentation.Controllers
 				{
 					UserName = model.Email,
 					Email = model.Email,
-					DrivingLicense = model.DrivingLicense
+					DrivingLicense = model.DrivingLicense,
+					PhoneNumber = model.PhoneNumber
 				};
 				var result = await UserManager.CreateAsync(user);
 				if (result.Succeeded)

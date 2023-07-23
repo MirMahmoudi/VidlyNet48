@@ -260,22 +260,42 @@
     <Compile Include="Migrations\202307201355116_AddDrivingLicenseToApplicationUser.designer.cs">
       <DependentUpon>202307201355116_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202307231312012_AlterPhoneNumberToBeRequired.cs" />
+    <Compile Include="Migrations\202307231312012_AlterPhoneNumberToBeRequired.designer.cs">
+      <DependentUpon>202307231312012_AlterPhoneNumberToBeRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels\ApplicationUser.cs" />
+    <Compile Include="ViewModels\AccountViewModels\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="ViewModels\AccountViewModels\ResetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\ExternalLoginListViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\ForgotViewModel.cs" />
     <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\IdentityModels\ApplicationDbContext.cs" />
+    <Compile Include="ViewModels\AccountViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels\AddPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels\FactorViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels\IndexViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels\ManageLoginsViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels\ConfigureTwoFactorViewModel.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="ViewModels\AccountViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\RoleName.cs" />
+    <Compile Include="ViewModels\AccountViewModels\SendCodeViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels\VerifyCodeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecretKey.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
-    <Compile Include="ViewModels\MovieFormViewModel.cs" />
-    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
+    <Compile Include="ViewModels\CustomersViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels\SetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\MoviesViewModels\MovieFormViewModel.cs" />
+    <Compile Include="ViewModels\MoviesViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -613,6 +633,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202307201355116_AddDrivingLicenseToApplicationUser.resx">
       <DependentUpon>202307201355116_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307231312012_AlterPhoneNumberToBeRequired.resx">
+      <DependentUpon>202307231312012_AlterPhoneNumberToBeRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
