@@ -4,7 +4,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using VidlyNet48.Presentation.Models;
-using VidlyNet48.Presentation.ViewModels;
+using VidlyNet48.Presentation.Models.IdentityModels;
+using VidlyNet48.Presentation.ViewModels.MoviesViewModels;
 
 namespace VidlyNet48.Presentation.Controllers
 {
@@ -54,6 +55,7 @@ namespace VidlyNet48.Presentation.Controllers
 		// POST: Movies/Save
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[Authorize(Roles = RoleName.CanManageMovies)]
 		public ActionResult Save(Movie movie)
 		{
 			if (ModelState.IsValid)
@@ -84,6 +86,7 @@ namespace VidlyNet48.Presentation.Controllers
 		}
 
 		// Get: Movies/Edit/:id
+		[Authorize(Roles = RoleName.CanManageMovies)]
 		public ActionResult Edit(int id)
 		{
 			var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
