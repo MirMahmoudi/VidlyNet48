@@ -1,6 +1,8 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using System.Runtime.Caching;
 using VidlyNet48.Presentation.Models;
 using VidlyNet48.Presentation.Models.IdentityModels;
 using VidlyNet48.Presentation.ViewModels.CustomersViewModels;
@@ -24,8 +26,11 @@ namespace VidlyNet48.Presentation.Controllers
 		// GET: Customers
 		public ActionResult Index()
 		{
-			// var customers = _context.Customers
-			// 	.Include(c => c.MembershipType);
+			//// For caching data from Database
+			// if (MemoryCache.Default["Genres"] == null)
+			// 	MemoryCache.Default["Genres"] = _context.Genres.ToList();
+			//
+			// var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
 
 			return View();
 		}
