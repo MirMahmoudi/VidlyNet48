@@ -3,6 +3,7 @@ using System.Linq;
 using System.Data.Entity;
 using System.Web.Http;
 using AutoMapper;
+using Microsoft.Ajax.Utilities;
 using VidlyNet48.Presentation.Dto;
 using VidlyNet48.Presentation.Models;
 using VidlyNet48.Presentation.Models.IdentityModels;
@@ -19,12 +20,18 @@ namespace VidlyNet48.Presentation.Controllers.Api
 		}
 
 		// GET: /api/Customers
-		public IHttpActionResult GetCustomers()
+		public IHttpActionResult GetCustomers(string query = null)
 		{
-			return Ok( _dbContext.Customers
-				.Include(c => c.MembershipType)
-				.ToList()
-				.Select(Mapper.Map<Customer, CustomerDto>) );
+			var customersQuery = _dbContext.Customers
+				.Include(c => c.MembershipType);
+
+			if(!string.IsNullOrWhiteSpace(query))
+				customersQuery = customersQuery.Where(c => c.Name.Contains(query));
+
+			var customersDto = customersQuery.ToList()
+				.Select(Mapper.Map<Customer, CustomerDto>);
+
+			return Ok(customersDto);
 		}
 
 		// GET: /api/Customers/:id

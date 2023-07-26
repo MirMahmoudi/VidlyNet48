@@ -13,7 +13,9 @@ namespace VidlyNet48.Presentation
 				"~/Scripts/bootstrap.js",
 				"~/Scripts/bootbox.js",
 				"~/Scripts/DataTables/jquery.dataTables.js",
-				"~/Scripts/DataTables/dataTables.bootstrap.js"));
+				"~/Scripts/DataTables/dataTables.bootstrap.js",
+				"~/Scripts/typeahead.bundle.js",
+				"~/Scripts/toastr.js"));
 
 				// bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
 			// 			"~/Scripts/jquery-{version}.js"));
@@ -33,6 +35,8 @@ namespace VidlyNet48.Presentation
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/bootstrap-lumen.css",
 					  "~/Content/DataTables/css/dataTables.bootstrap4.css",
+					  "~/Content/typeahead.css",
+					  "~/Content/toastr.css",
 					  "~/Content/Site.css"));
 		}
 	}
