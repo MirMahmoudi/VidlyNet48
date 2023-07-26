@@ -24,5 +24,7 @@ namespace VidlyNet48.Presentation.Models
 		[Display(Name = "Number in stock")]
 		[Range(1, 20, ErrorMessage = "Should be between 1 and 20!")]
 		public int NumberInStuck { get; set; }
+
+		public int NumberAvailable { get; set; }
 	}
 }
